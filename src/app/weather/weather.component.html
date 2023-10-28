@@ -1,15 +1,25 @@
-<div>
-    <h1>Weather Application</h1>
+<div class="container">
+    <div class="card">
+        <h1>Weather App</h1>
 
-    <form>
-        <input type="text" name="cityName" placeholder="Enter a city name" [(ngModel)]="city">
-        <button type="button" (click)="getWeather()"> Get Weather </button>
-    </form>
+        <form>
+            <input type="text" name="cityName" placeholder="Enter a city name" [(ngModel)]="city">
+            <button type="button" (click)="getWeather()"> <fa-icon [icon]=" faMagnifyingGlass "></fa-icon> </button>
+        </form>
 
-    <div *ngIf="weatherData">
-        <h2>{{weatherData.name}}</h2>
-        <p>Temperature: {{weatherData.main.temp}}</p>
-        <p>Humidity: {{weatherData.main.humidity}}</p>
-        <p>Temperature: {{weatherData.weather[0].description}}</p>
+        <div *ngIf="weatherData">
+            <h2>{{weatherData.name}}</h2>
+
+            <div class="faCloudSunRain">
+                <fa-icon [icon]="faCloudSunRain"></fa-icon>
+            </div>
+
+            <div class="datas">
+                <p>Temperature: {{weatherData.main.temp}}° <fa-icon [icon]="faTemperatureHalf"></fa-icon> </p>
+                <p>Humidity: {{weatherData.main.humidity}} <fa-icon [icon]="faDropletSlash"></fa-icon></p>
+                <p>Temperature: {{weatherData.weather[0].description}}</p>
+            </div>
+        </div>
+
     </div>
 </div>
